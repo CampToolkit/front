@@ -20,22 +20,19 @@ const menuItems = [
 
 export default function SidebarMenu() {
   const [isOpen, setIsOpen] = useState<boolean>(false);
-  const toggle = (state: boolean) => {
-    console.log(state);
-    setIsOpen(state);
-  };
+  const toggleSidebar = (state: boolean) => setIsOpen(state);
 
   return (
     <>
-      <IconButton onClick={() => toggle(true)}>
+      <IconButton onClick={() => toggleSidebar(true)}>
         <MenuIcon />
       </IconButton>
 
-      <Drawer anchor={'right'} open={isOpen} onClose={() => toggle(false)}>
-        <Box sx={{ width: 250 }} onClick={() => toggle(false)}>
+      <Drawer anchor={'right'} open={isOpen} onClose={() => toggleSidebar(false)}>
+        <Box sx={{ width: 250 }} onClick={() => toggleSidebar(false)}>
           <List>
             {menuItems.map((item) => (
-              <ListItemButton component={RouterLink} to={item.href}>
+              <ListItemButton key={item.href} component={RouterLink} to={item.href}>
                 {item.name}
               </ListItemButton>
             ))}
