@@ -1,43 +1,45 @@
-import { Box, Typography } from '@mui/material';
 import dayjs, { Dayjs } from 'dayjs';
-import { useState } from 'react';
+import 'dayjs/locale/ru';
+
+import { Box, Typography } from '@mui/material';
+
+import { useWeekDays } from '@/shared/components/calendar/use-week-days.hook.ts';
+
+dayjs.locale('ru');
 
 type WeekCalendarProps = {
   startDate?: Dayjs; // первый день недели, по умолчанию сегодня
 };
 
-export default function WeekCalendar({ startDate = dayjs() }: WeekCalendarProps) {
-  const [selectedDate, setSelectedDate] = useState<Dayjs | null>(null);
+export default function WeekCalendar(props: WeekCalendarProps) {
+  const { startDate = dayjs() } = props;
+  const currentDate = dayjs();
 
-  // генерируем массив из 7 дней недели
-  const weekDays = Array.from({ length: 7 }, (_, i) => startDate.add(i, 'day'));
+  const weekDays = useWeekDays(startDate);
+
+  function handleClickDay(day: Dayjs) {
+    console.log(day);
+  }
 
   return (
     <Box
       sx={{
         display: 'grid',
-        gridTemplateColumns: {
-          xs: 'repeat(1, 1fr)', // мобильные экраны - 1 день в ряду
-          sm: 'repeat(2, 1fr)', // ≥600px - 2 дня в ряду
-        },
+        gridTemplateColumns: 'repeat(2, 1fr)',
         gap: 1,
         maxWidth: 768,
         mx: 'auto',
-        p: 2,
       }}
     >
       {weekDays.map((day) => (
         <Box
           key={day.toString()}
-          onClick={() => setSelectedDate(day)}
+          onClick={() => handleClickDay(day)}
           sx={{
-            aspectRatio: '1 / 1', // квадрат
-            bgcolor: selectedDate?.isSame(day, 'day') ? 'primary.main' : 'grey.100',
-            color: selectedDate?.isSame(day, 'day') ? 'primary.contrastText' : 'text.primary',
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'center',
-            alignItems: 'center',
+            aspectRatio: '1 / 1',
+            p: 2,
+            bgcolor: currentDate.isSame(day, 'day') ? 'primary.main' : 'grey.100',
+            color: currentDate.isSame(day, 'day') ? 'primary.contrastText' : 'text.primary',
             borderRadius: 1,
             cursor: 'pointer',
             transition: '0.2s',
@@ -47,8 +49,15 @@ export default function WeekCalendar({ startDate = dayjs() }: WeekCalendarProps)
             },
           }}
         >
-          <Typography variant="body2">{day.format('ddd')}</Typography>
-          <Typography variant="h6">{day.format('D')}</Typography>
+          <Typography variant="body2">{day.format('dddd DD.MM')}</Typography>
+          <Box
+            sx={{
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'center',
+              alignItems: 'center',
+            }}
+          ></Box>
         </Box>
       ))}
     </Box>
