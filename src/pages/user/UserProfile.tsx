@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import { useFormik } from 'formik';
 import { Box, Button, Typography, Select, MenuItem, IconButton } from '@mui/material';
-import PageTitle from '@/shared/components/PageTitle.tsx';
 import EditIcon from '@mui/icons-material/Edit';
+import PageTitle from '@/shared/components/PageTitle.tsx';
+import BaseAspectCard from '@/shared/components/BaseAspectCard';
 
 type formType = {
   role: string;
@@ -91,6 +92,11 @@ export default function UserProfile() {
         >
           Сохранить
         </Button>
+      </Box>
+      <Box mt={2}>
+        <BaseAspectCard>
+          <h1>Title</h1>
+        </BaseAspectCard>
       </Box>
     </div>
   );
