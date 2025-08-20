@@ -6,6 +6,7 @@ import CampPage from '@/pages/camp/CampPage';
 import CampDetailsPage from '@/pages/camp/CampDetailsPage';
 import CampSportsmenPage from '@/pages/camp/CampSportsmenPage';
 import CampGroupsPage from '@/pages/camp/CampGroupsPage';
+import UserProfile from '@/pages/user/UserProfile.tsx';
 
 const router = createBrowserRouter([
   {
@@ -37,6 +38,10 @@ const router = createBrowserRouter([
             element: <CampGroupsPage />,
           },
         ],
+      },
+      {
+        path: 'user-profile',
+        element: <UserProfile />,
       },
     ],
   },
