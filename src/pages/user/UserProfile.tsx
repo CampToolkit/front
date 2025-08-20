@@ -3,7 +3,17 @@ import { useFormik } from 'formik';
 import { Box, Button, Typography, Select, MenuItem, IconButton } from '@mui/material';
 import EditIcon from '@mui/icons-material/Edit';
 import PageTitle from '@/shared/components/PageTitle.tsx';
-import BaseAspectCard from '@/shared/components/BaseAspectCard';
+import BaseSlider from '@/shared/components/swiper-slider/BaseSlider.tsx';
+import SportsmanSlideCard, {
+  type SportsmanSlideCardPropsType,
+} from '@/pages/user/SportsmanSlideCard.tsx';
+
+// note temporary
+const watchingSportsmen = [
+  { keyId: 1, name: 'name1', group: 'group1' },
+  { keyId: 2, name: 'name2', group: 'group2' },
+  { keyId: 3, name: 'name3', group: 'group3' },
+];
 
 type formType = {
   role: string;
@@ -31,7 +41,7 @@ export default function UserProfile() {
     <div>
       <PageTitle title="Профиль" showBackButton={true} />
       <Box>
-        <Typography variant="body1">
+        <Typography variant="h6" sx={{ mb: 1 }}>
           {lastName}
           {firstName}
         </Typography>
@@ -45,8 +55,8 @@ export default function UserProfile() {
           display: 'flex',
           flexDirection: 'column',
           maxWidth: 400,
-          mt: 1,
-          p: 1,
+          mb: 3,
+          p: 2,
           pt: 5,
           backgroundColor: 'whitesmoke',
           borderRadius: 1,
@@ -93,10 +103,15 @@ export default function UserProfile() {
           Сохранить
         </Button>
       </Box>
-      <Box mt={2}>
-        <BaseAspectCard>
-          <h1>Title</h1>
-        </BaseAspectCard>
+
+      <Box>
+        <Typography variant="h6" sx={{ mb: 1 }}>
+          Наблюдаемые спортсмены
+        </Typography>
+        <BaseSlider<SportsmanSlideCardPropsType>
+          items={watchingSportsmen}
+          renderItem={(item: SportsmanSlideCardPropsType) => <SportsmanSlideCard {...item} />}
+        />
       </Box>
     </div>
   );
