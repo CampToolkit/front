@@ -1,5 +1,6 @@
-import { Box, IconButton } from '@mui/material';
-import EditIcon from '@mui/icons-material/Delete';
+import { Box } from '@mui/material';
+import DeleteIcon from '@mui/icons-material/Delete';
+import ActionIconButton from '@/shared/components/buttons/ActionIconButton.tsx';
 
 export type SportsmanSlideCardPropsType = {
   keyId: number;
@@ -15,21 +16,16 @@ export default function SportsmanSlideCard(props: SportsmanSlideCardPropsType) {
     <Box>
       <div>{props.name}</div>
       <div>{props.group}</div>
-      <IconButton
-        onClick={() => moveFromList(props.keyId)}
+      <ActionIconButton
+        callback={() => moveFromList(props.keyId)}
+        icon={<DeleteIcon />}
         sx={{
-          position: 'absolute',
-          top: 0,
-          right: 0,
-          alignItems: 'right',
           color: 'error.main',
           '&:hover': {
             backgroundColor: 'error.light',
           },
         }}
-      >
-        <EditIcon />
-      </IconButton>
+      />
     </Box>
   );
 }
