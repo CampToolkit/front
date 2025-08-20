@@ -1,12 +1,13 @@
 import { useState } from 'react';
 import { useFormik } from 'formik';
-import { Box, Button, Typography, Select, MenuItem, IconButton } from '@mui/material';
+import { Box, Button, Typography, Select, MenuItem } from '@mui/material';
 import EditIcon from '@mui/icons-material/Edit';
 import PageTitle from '@/shared/components/PageTitle.tsx';
 import BaseSlider from '@/shared/components/swiper-slider/BaseSlider.tsx';
 import SportsmanSlideCard, {
   type SportsmanSlideCardPropsType,
 } from '@/pages/user/SportsmanSlideCard.tsx';
+import ActionIconButton from '@/shared/components/buttons/ActionIconButton.tsx';
 
 // note temporary
 const watchingSportsmen = [
@@ -62,21 +63,7 @@ export default function UserProfile() {
           borderRadius: 1,
         }}
       >
-        <IconButton
-          onClick={() => setIsDisabledForm(false)}
-          sx={{
-            position: 'absolute',
-            top: 0,
-            right: 0,
-            alignItems: 'right',
-            color: 'primary.main',
-            '&:hover': {
-              backgroundColor: 'primary.light',
-            },
-          }}
-        >
-          <EditIcon />
-        </IconButton>
+        <ActionIconButton callback={() => setIsDisabledForm(false)} icon={<EditIcon />} />
 
         <Box display="flex" alignItems="center" gap={2} mb={3}>
           <Typography variant="body1">Роль</Typography>

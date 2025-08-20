@@ -1,6 +1,5 @@
 import type { ReactNode } from 'react';
 import { IconButton } from '@mui/material';
-import EditIcon from '@mui/icons-material/Delete';
 import type { SxProps, Theme } from '@mui/system';
 
 type ActionIconButtonPropsType = {
@@ -25,7 +24,7 @@ export default function ActionIconButton(props: ActionIconButtonPropsType) {
         ...props.sx,
       }}
     >
-      <EditIcon />
+      {props.icon}
     </IconButton>
   );
 }
