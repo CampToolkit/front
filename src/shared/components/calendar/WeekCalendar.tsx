@@ -1,21 +1,21 @@
+import { useOutletContext } from 'react-router-dom';
+import type { CalendarOutletContextType } from './types/calendar-outlet-context.type';
+
 import dayjs, { Dayjs } from 'dayjs';
 import 'dayjs/locale/ru';
 
 import { Box, Typography } from '@mui/material';
 
-import { useWeekDays } from '@/shared/components/calendar/use-week-days.hook.ts';
+import { useWeekDays } from '@/shared/components/calendar/hooks/use-week-days.hook';
 
 dayjs.locale('ru');
 
-type WeekCalendarProps = {
-  startDate?: Dayjs; // первый день недели, по умолчанию сегодня
-};
+export default function WeekCalendar() {
+  const { currentDate: date } = useOutletContext<CalendarOutletContextType>();
 
-export default function WeekCalendar(props: WeekCalendarProps) {
-  const { startDate = dayjs() } = props;
-  const currentDate = dayjs();
-
-  const weekDays = useWeekDays(startDate);
+  const currentDate = dayjs(date);
+  const weekDays = useWeekDays(currentDate);
+  console.log(weekDays);
 
   function handleClickDay(day: Dayjs) {
     console.log(day);
