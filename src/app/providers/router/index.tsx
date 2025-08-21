@@ -8,6 +8,8 @@ import CampSportsmenPage from '@/pages/camp/CampSportsmenPage';
 import CampGroupsPage from '@/pages/camp/CampGroupsPage';
 import UserProfile from '@/pages/user/UserProfile.tsx';
 import CalendarPage from '@/pages/CalendarPage.tsx';
+import WeekCalendar from '@/shared/components/calendar/WeekCalendar';
+import DayCalendar from '@/shared/components/calendar/DayCalendar';
 
 const router = createBrowserRouter([
   {
@@ -47,6 +49,21 @@ const router = createBrowserRouter([
       {
         path: 'calendar',
         element: <CalendarPage />,
+        children: [
+          {
+            path: 'weeks',
+            element: null,
+          },
+          {
+            index: true,
+            // path: 'week',
+            element: <WeekCalendar />,
+          },
+          {
+            path: 'day',
+            element: <DayCalendar />,
+          },
+        ],
       },
     ],
   },

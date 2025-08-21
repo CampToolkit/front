@@ -1,19 +1,14 @@
 import { Box, Typography } from '@mui/material';
-import dayjs, { Dayjs } from 'dayjs';
+
 import 'dayjs/locale/ru';
 
 import PageTitle from '@/shared/components/PageTitle.tsx';
+import { useOutletContext } from 'react-router-dom';
+import type { CalendarOutletContextType } from './types/calendar-outlet-context.type';
 
-type DayCalendarPropsType = {
-  date: Dayjs;
-  schedule: {
-    date: Date;
-    practiceType: string;
-    auditorium: string;
-  };
-};
+export default function DayCalendar() {
+  const { currentDate } = useOutletContext<CalendarOutletContextType>();
 
-export default function DayCalendar(props: DayCalendarPropsType) {
   return (
     <Box>
       <Box
@@ -24,7 +19,7 @@ export default function DayCalendar(props: DayCalendarPropsType) {
         }}
       >
         <PageTitle title="Расписание" />
-        <Typography variant="body1">{dayjs(props.date).format('dddd DD.MM')}</Typography>
+        <Typography variant="body1">{currentDate.toDateString()}</Typography>
       </Box>
     </Box>
   );
