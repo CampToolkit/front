@@ -60,7 +60,7 @@ const router = createBrowserRouter([
             element: <WeekCalendar />,
           },
           {
-            path: 'day/:date',
+            path: 'day',
             element: <DayCalendar />,
           },
         ],

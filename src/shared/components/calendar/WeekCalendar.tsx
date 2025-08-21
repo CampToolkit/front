@@ -11,13 +11,14 @@ import { useWeekDays } from '@/shared/components/calendar/hooks/use-week-days.ho
 dayjs.locale('ru');
 
 export default function WeekCalendar() {
-  const { currentDate: date } = useOutletContext<CalendarOutletContextType>();
+  const { currentDate, setCurrentDate } = useOutletContext<CalendarOutletContextType>();
   const navigate = useNavigate();
-  const currentDate = dayjs(date);
+
   const weekDays = useWeekDays(currentDate);
 
   function handleClickDay(day: Dayjs) {
-    navigate(`/calendar/day/${day.format('YYYY-MM-DD')}`);
+    setCurrentDate(day);
+    navigate(`/calendar/day`);
   }
 
   return (

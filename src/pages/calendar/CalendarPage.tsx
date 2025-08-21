@@ -1,15 +1,18 @@
 import { useEffect, useState } from 'react';
 import { Outlet } from 'react-router-dom';
-import { Box } from '@mui/material';
+import dayjs from 'dayjs';
+import { Dayjs } from 'dayjs';
 
+import { useCalendarContext } from '@/shared/components/calendar/hooks/use-calendar-context.hook.ts';
+
+import { Box } from '@mui/material';
 import PageTitle from '@/shared/components/PageTitle.tsx';
 
 import type { DayScheduleType } from '@/shared/components/calendar/types/day-schedule.type';
-import { useCalendarContext } from '@/shared/components/calendar/hooks/use-calendar-context.hook.ts';
 
 export default function CalendarPage() {
   const [schedules, setSchedules] = useState<DayScheduleType[]>([]);
-  const [currentDate, setCurrentDate] = useState<Date | null>(new Date());
+  const [currentDate, setCurrentDate] = useState<Dayjs | null>(dayjs());
 
   const { role, spyingPersonId } = useCalendarContext();
 
@@ -19,7 +22,7 @@ export default function CalendarPage() {
 
   return (
     <Box>
-      <PageTitle title="Расписание" />
+      <PageTitle title="Расписание" showBackButton={true} />
       <Outlet context={{ schedules, currentDate, setCurrentDate }} />
     </Box>
   );
