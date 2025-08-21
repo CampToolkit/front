@@ -6,8 +6,8 @@ import CampPage from '@/pages/camp/CampPage';
 import CampDetailsPage from '@/pages/camp/CampDetailsPage';
 import CampSportsmenPage from '@/pages/camp/CampSportsmenPage';
 import CampGroupsPage from '@/pages/camp/CampGroupsPage';
-import UserProfile from '@/pages/user/UserProfile.tsx';
-import CalendarPage from '@/pages/CalendarPage.tsx';
+import UserProfile from '@/pages/user/UserProfile';
+import CalendarPage from '@/pages/calendar/CalendarPage';
 import WeekCalendar from '@/shared/components/calendar/WeekCalendar';
 import DayCalendar from '@/shared/components/calendar/DayCalendar';
 
