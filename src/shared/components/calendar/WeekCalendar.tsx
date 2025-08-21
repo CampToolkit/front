@@ -1,4 +1,4 @@
-import { useOutletContext } from 'react-router-dom';
+import { useNavigate, useOutletContext } from 'react-router-dom';
 import type { CalendarOutletContextType } from './types/calendar-outlet-context.type';
 
 import dayjs, { Dayjs } from 'dayjs';
@@ -12,13 +12,12 @@ dayjs.locale('ru');
 
 export default function WeekCalendar() {
   const { currentDate: date } = useOutletContext<CalendarOutletContextType>();
-
+  const navigate = useNavigate();
   const currentDate = dayjs(date);
   const weekDays = useWeekDays(currentDate);
-  console.log(weekDays);
 
   function handleClickDay(day: Dayjs) {
-    console.log(day);
+    navigate(`/calendar/day/${day.format('YYYY-MM-DD')}`);
   }
 
   return (
