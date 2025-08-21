@@ -2,9 +2,8 @@ import { Box, Typography } from '@mui/material';
 
 import 'dayjs/locale/ru';
 
-import PageTitle from '@/shared/components/PageTitle.tsx';
+import type { CalendarOutletContextType } from '@/shared/components/calendar/types/calendar-outlet-context.type.ts';
 import { useOutletContext } from 'react-router-dom';
-import type { CalendarOutletContextType } from './types/calendar-outlet-context.type';
 
 export default function DayCalendar() {
   const { currentDate } = useOutletContext<CalendarOutletContextType>();
@@ -18,8 +17,7 @@ export default function DayCalendar() {
           alignItems: 'center',
         }}
       >
-        <PageTitle title="Расписание" />
-        <Typography variant="body1">{currentDate.toDateString()}</Typography>
+        <Typography variant="body1">{currentDate.format('DD.MM.YYYY')}</Typography>
       </Box>
     </Box>
   );
