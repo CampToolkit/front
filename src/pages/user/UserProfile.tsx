@@ -11,9 +11,9 @@ import ActionIconButton from '@/shared/components/buttons/ActionIconButton.tsx';
 
 // note temporary
 const watchingSportsmen = [
-  { keyId: 1, name: 'name1', group: 'group1' },
-  { keyId: 2, name: 'name2', group: 'group2' },
-  { keyId: 3, name: 'name3', group: 'group3' },
+  { keyId: 1, spyingPersonId: 1, name: 'name1', group: 'group1' },
+  { keyId: 2, spyingPersonId: 2, name: 'name2', group: 'group2' },
+  { keyId: 3, spyingPersonId: 3, name: 'name3', group: 'group3' },
 ];
 
 type formType = {
