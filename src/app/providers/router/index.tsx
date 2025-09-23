@@ -1,15 +1,13 @@
 import { createBrowserRouter } from 'react-router-dom';
 import HomePage from '@/pages/home/HomePage.tsx';
-import MainLayout from '@/shared/components/layouts/MainLayout.tsx';
+import MainLayout from '@/common/components/layouts/MainLayout.tsx';
 import CampsPage from '@/pages/camps/CampsPage';
 import CampPage from '@/pages/camp/CampPage';
-import CampDetailsPage from '@/pages/camp/CampDetailsPage';
-import CampSportsmenPage from '@/pages/camp/CampSportsmenPage';
-import CampGroupsPage from '@/pages/camp/CampGroupsPage';
+
 import UserProfile from '@/pages/user/UserProfile';
 import CalendarPage from '@/pages/calendar/CalendarPage';
-import WeekCalendar from '@/shared/components/calendar/WeekCalendar';
-import DayCalendar from '@/shared/components/calendar/DayCalendar';
+import WeekCalendar from '@/common/components/calendar/WeekCalendar';
+import DayCalendar from '@/common/components/calendar/DayCalendar';
 
 const router = createBrowserRouter([
   {
@@ -25,22 +23,8 @@ const router = createBrowserRouter([
         element: <CampsPage />,
       },
       {
-        path: '/camps/:id',
+        path: '/camps/:campId',
         element: <CampPage />,
-        children: [
-          {
-            path: 'details',
-            element: <CampDetailsPage />,
-          },
-          {
-            path: 'sportsmen',
-            element: <CampSportsmenPage />,
-          },
-          {
-            path: 'groups',
-            element: <CampGroupsPage />,
-          },
-        ],
       },
       {
         path: 'profile',

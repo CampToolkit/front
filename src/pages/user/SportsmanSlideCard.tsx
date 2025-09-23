@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { Box } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
-import ActionIconButton from '@/shared/components/buttons/ActionIconButton.tsx';
+import ActionIconButton from '@/common/components/buttons/ActionIconButton.tsx';
 
 export type SportsmanSlideCardPropsType = {
   keyId: number;

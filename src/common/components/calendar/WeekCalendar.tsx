@@ -6,7 +6,7 @@ import 'dayjs/locale/ru';
 
 import { Box, Typography } from '@mui/material';
 
-import { useWeekDays } from '@/shared/components/calendar/hooks/use-week-days.hook';
+import { useWeekDays } from '@/common/components/calendar/hooks/use-week-days.hook';
 
 dayjs.locale('ru');
 

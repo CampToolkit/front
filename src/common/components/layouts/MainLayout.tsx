@@ -1,6 +1,6 @@
 import { AppBar, Container, IconButton, Toolbar, Typography } from '@mui/material';
 import { Outlet, Link } from 'react-router-dom';
-import SidebarMenu from '@/shared/components/SidebarMenu.tsx';
+import SidebarMenu from '@/common/components/SidebarMenu.tsx';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 
 export default function MainLayout() {

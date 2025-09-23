@@ -1,0 +1,59 @@
+import { type ComponentType, useEffect } from 'react';
+import BaseInfo from '@/modules/camp-base-info/BaseInfo.tsx';
+import Sportsmen from '@/modules/sportsmen/Sportsmen.tsx';
+import Groups from '@/modules/groups/Groups';
+import { useCampTabs } from '@/modules/camp/hooks/use-camp-tabs.hook.ts';
+import PageTitle from '@/common/components/PageTitle.tsx';
+import { Box, Tab, Tabs } from '@mui/material';
+import { useParams } from 'react-router-dom';
+import { useCampContext } from '@/modules/camp/providers/camp-context.tsx';
+
+interface CampTab {
+  name: string;
+  path: string;
+  component: ComponentType;
+}
+
+const TABS: CampTab[] = [
+  {
+    name: 'Основная информация',
+    path: 'base-info',
+    component: BaseInfo,
+  },
+  {
+    name: 'Спортсмены',
+    path: 'sportsmen',
+    component: Sportsmen,
+  },
+  {
+    name: 'Группы',
+    path: 'groups',
+    component: Groups,
+  },
+];
+
+export default function Camp() {
+  const { campId } = useParams();
+
+  const { setCampId } = useCampContext();
+  const { currentTabIndex, handleSwitchTabs } = useCampTabs();
+  const CurrentComponent = TABS[currentTabIndex].component;
+
+  useEffect(() => {
+    setCampId(Number(campId));
+  }, [campId]);
+
+  return (
+    <div>
+      <PageTitle title="Спортивный лагерь" showBackButton={true} />
+      <Tabs value={currentTabIndex} onChange={handleSwitchTabs} sx={{ mb: 2 }}>
+        {TABS.map((tab, index) => (
+          <Tab key={tab.name} label={tab.name} value={index} />
+        ))}
+      </Tabs>
+      <Box>
+        <CurrentComponent />
+      </Box>
+    </div>
+  );
+}
