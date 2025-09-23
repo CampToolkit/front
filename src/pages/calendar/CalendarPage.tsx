@@ -3,12 +3,12 @@ import { Outlet } from 'react-router-dom';
 import dayjs from 'dayjs';
 import { Dayjs } from 'dayjs';
 
-import { useCalendarContext } from '@/shared/components/calendar/hooks/use-calendar-context.hook.ts';
+import { useCalendarContext } from '@/modules/calendar/hooks/use-calendar-context.hook.ts';
 
 import { Box } from '@mui/material';
-import PageTitle from '@/shared/components/PageTitle.tsx';
+import PageTitle from '@/common/components/PageTitle.tsx';
 
-import type { DayScheduleType } from '@/shared/components/calendar/types/day-schedule.type';
+import type { DayScheduleType } from '@/modules/calendar/types/day-schedule.type';
 
 export default function CalendarPage() {
   const [schedules, setSchedules] = useState<DayScheduleType[]>([]);

@@ -1,7 +1,7 @@
 import { Box, Typography } from '@mui/material';
 import { Link } from 'react-router-dom';
-import BaseTile from '@/shared/tile/BaseTile';
-import PageTitle from '@/shared/components/PageTitle';
+import BaseTile from '@/common/tile/BaseTile';
+import PageTitle from '@/common/components/PageTitle';
 
 export default function CampsPage() {
   return (

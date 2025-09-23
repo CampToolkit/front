@@ -2,12 +2,12 @@ import { useState } from 'react';
 import { useFormik } from 'formik';
 import { Box, Button, Typography, Select, MenuItem } from '@mui/material';
 import EditIcon from '@mui/icons-material/Edit';
-import PageTitle from '@/shared/components/PageTitle.tsx';
-import BaseSlider from '@/shared/components/swiper-slider/BaseSlider.tsx';
+import PageTitle from '@/common/components/PageTitle.tsx';
+import BaseSlider from '@/common/components/swiper-slider/BaseSlider.tsx';
 import SportsmanSlideCard, {
   type SportsmanSlideCardPropsType,
 } from '@/pages/user/SportsmanSlideCard.tsx';
-import ActionIconButton from '@/shared/components/buttons/ActionIconButton.tsx';
+import ActionIconButton from '@/common/components/buttons/ActionIconButton.tsx';
 
 // note temporary
 const watchingSportsmen = [

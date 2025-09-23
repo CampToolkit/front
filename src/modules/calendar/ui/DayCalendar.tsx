@@ -2,7 +2,7 @@ import { Box, Typography } from '@mui/material';
 
 import 'dayjs/locale/ru';
 
-import type { CalendarOutletContextType } from '@/shared/components/calendar/types/calendar-outlet-context.type.ts';
+import type { CalendarOutletContextType } from '@/modules/calendar/types/calendar-outlet-context.type.ts';
 import { useOutletContext } from 'react-router-dom';
 
 export default function DayCalendar() {

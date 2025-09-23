@@ -3,7 +3,7 @@
 import type { ReactNode } from 'react';
 import { Box } from '@mui/material';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import BaseAspectCard from '@/shared/components/BaseAspectCard.tsx';
+import BaseAspectCard from '@/common/components/BaseAspectCard.tsx';
 
 // @ts-expect-error:TS2307
 import 'swiper/css';
