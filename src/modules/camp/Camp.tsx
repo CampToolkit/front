@@ -1,7 +1,7 @@
 import { type ComponentType, useEffect } from 'react';
 import BaseInfo from '@/modules/camp-base-info/BaseInfo.tsx';
 import SportsmenTab from '@/modules/sportsmen/SportsmenTab.tsx';
-import Groups from '@/modules/groups/Groups';
+import Groups from '@/modules/groups/Groups.tsx';
 import { useCampTabs } from '@/modules/camp/hooks/use-camp-tabs.hook.ts';
 import PageTitle from '@/common/components/PageTitle.tsx';
 import { Box, Tab, Tabs } from '@mui/material';

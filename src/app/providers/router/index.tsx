@@ -6,8 +6,8 @@ import CampPage from '@/pages/camp/CampPage';
 
 import UserProfile from '@/pages/user/UserProfile';
 import CalendarPage from '@/pages/calendar/CalendarPage';
-import WeekCalendar from '@/common/components/calendar/WeekCalendar';
-import DayCalendar from '@/common/components/calendar/DayCalendar';
+import WeekCalendar from '@/modules/calendar/ui/WeekCalendar.tsx';
+import DayCalendar from '@/modules/calendar/ui/DayCalendar.tsx';
 
 const router = createBrowserRouter([
   {

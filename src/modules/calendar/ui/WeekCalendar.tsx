@@ -1,12 +1,12 @@
 import { useNavigate, useOutletContext } from 'react-router-dom';
-import type { CalendarOutletContextType } from './types/calendar-outlet-context.type';
+import type { CalendarOutletContextType } from '../types/calendar-outlet-context.type.ts';
 
 import dayjs, { Dayjs } from 'dayjs';
 import 'dayjs/locale/ru';
 
 import { Box, Typography } from '@mui/material';
 
-import { useWeekDays } from '@/common/components/calendar/hooks/use-week-days.hook';
+import { useWeekDays } from '@/modules/calendar/hooks/use-week-days.hook.ts';
 
 dayjs.locale('ru');
 
