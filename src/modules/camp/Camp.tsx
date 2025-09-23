@@ -6,7 +6,8 @@ import { useCampTabs } from '@/modules/camp/hooks/use-camp-tabs.hook.ts';
 import PageTitle from '@/common/components/PageTitle.tsx';
 import { Box, Tab, Tabs } from '@mui/material';
 import { useParams } from 'react-router-dom';
-import { useCampContext } from '@/modules/camp/providers/camp-context.tsx';
+import { useCampContext } from '@/modules/camp/providers/camp-context.ts';
+import { useCampApi } from '@/common/api/camp/hooks/use-camp.hook';
 
 interface CampTab {
   name: string;
@@ -35,18 +36,22 @@ const TABS: CampTab[] = [
 export default function Camp() {
   const { campId } = useParams();
 
-  const { setCampId } = useCampContext();
+  const { setCamp } = useCampContext();
+  const { camp } = useCampApi(Number(campId));
 
   const { currentTabIndex, handleSwitchTabs } = useCampTabs();
   const CurrentComponent = TABS[currentTabIndex].component;
 
   useEffect(() => {
-    setCampId(Number(campId));
-  }, [campId]);
+    setCamp(camp);
+  }, [camp]);
 
   return (
     <div>
-      <PageTitle title="Спортивный лагерь" showBackButton={true} />
+      <PageTitle
+        title={`Спортивный лагерь ${camp ? camp.name.toUpperCase() : ''}`}
+        showBackButton={true}
+      />
       <Tabs value={currentTabIndex} onChange={handleSwitchTabs} sx={{ mb: 2 }}>
         {TABS.map((tab, index) => (
           <Tab key={tab.name} label={tab.name} value={index} />
