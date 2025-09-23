@@ -1,4 +1,4 @@
-import type { Entity } from "@/shared/api/lib/types/Entity.type.ts";
+import type { Entity } from './Entity.type';
 
 export interface Person extends Entity {
   lastName: string;

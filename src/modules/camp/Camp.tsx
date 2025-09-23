@@ -7,7 +7,7 @@ import PageTitle from '@/common/components/PageTitle.tsx';
 import { Box, Tab, Tabs } from '@mui/material';
 import { useParams } from 'react-router-dom';
 import { useCampContext } from '@/modules/camp/providers/camp-context.ts';
-import { useCampApi } from '@/common/api/camp/hooks/use-camp.hook';
+import { useCampApi } from '@/common/api/camp/hooks/use-camp-api.hook.ts';
 
 interface CampTab {
   name: string;

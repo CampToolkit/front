@@ -1,11 +1,15 @@
 import { Checkbox, Table, TableBody, TableCell, TableHead, TableRow } from '@mui/material';
 import type { ChangeEvent } from 'react';
+
+import { useSportsmanApi } from '@/common/api/sportsman/hooks/use-sportsman-api.hook.ts';
+import { useCampContext } from '@/modules/camp/providers/camp-context.ts';
 const theadStyles = {
-  fontWeight: 'bold',
+  fontWeight: '900',
 };
+
 export default function Sportsmen() {
-  const fields = [];
-  const sporstmen = [];
+  const { camp } = useCampContext();
+  const { state: sportsmen } = useSportsmanApi(camp ? camp.id : undefined);
 
   const onChange = (e: ChangeEvent<HTMLInputElement>, personId: number) => {
     console.log(e, personId);
@@ -13,31 +17,21 @@ export default function Sportsmen() {
 
   return (
     <div>
-      <div>sportsmen</div>
       <Table stickyHeader>
         <TableHead>
           <TableRow>
-            {fields.map((field) => (
-              <TableCell
-                key={field.key as string}
-                sx={{
-                  ...theadStyles,
-                }}
-              >
-                {field.label}
-              </TableCell>
-            ))}
+            <TableCell sx={theadStyles}>ФИО</TableCell>
             <TableCell sx={theadStyles} width={'1%'}>
               Наблюдать
             </TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
-          {sporstmen.map((entity) => (
+          {sportsmen.map((entity) => (
             <TableRow key={entity.id}>
-              {fields.map((field) => (
-                <TableCell>{entity[field.key] as string}</TableCell>
-              ))}
+              <TableCell>
+                {entity.lastName} {entity.firstName} {entity.patrName}
+              </TableCell>
               <TableCell align={'center'}>
                 <Checkbox
                   key={`${entity.id}${entity.id}`}

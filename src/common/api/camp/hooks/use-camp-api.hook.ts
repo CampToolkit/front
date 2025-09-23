@@ -5,7 +5,7 @@ import { CampApi } from '@/common/api/camp/CampApi.ts';
 interface UseCampApiResult {
   camp: Camp | null;
   camps: Camp[];
-  fetch: (campId?: number) => Promise<void>;
+  fetch: () => Promise<void>;
 }
 
 export function useCampApi(campId?: number): UseCampApiResult {
