@@ -36,6 +36,7 @@ export default function Camp() {
   const { campId } = useParams();
 
   const { setCampId } = useCampContext();
+
   const { currentTabIndex, handleSwitchTabs } = useCampTabs();
   const CurrentComponent = TABS[currentTabIndex].component;
 

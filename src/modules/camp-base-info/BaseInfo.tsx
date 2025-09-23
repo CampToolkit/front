@@ -1,7 +1,10 @@
+import { Box } from '@mui/material';
+
 export default function BaseInfo() {
   return (
-    <div>
-      <div>BaseInfo</div>
-    </div>
+    <Box>
+      <div>Город:</div>
+      <div>Даты:</div>
+    </Box>
   );
 }
