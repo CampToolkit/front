@@ -18,6 +18,8 @@ export default function BaseTile(props: BaseTilePropsType) {
         height: '50vw',
         maxHeight: '250px',
 
+        padding: 1,
+
         backgroundColor: 'primary.light',
         border: '1px solid',
         borderColor: 'primary.main',
