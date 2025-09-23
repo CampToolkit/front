@@ -1,22 +1,9 @@
-import { Paper, Table, TableCell, TableContainer, TableHead, TableRow } from '@mui/material';
+import GroupsTable from '@/modules/groups/GroupsTable.tsx';
+import { useCampContext } from '@/modules/camp/providers/camp-context.ts';
+import { useGroupApi } from '@/common/api/group/hooks/use-group-api.hook.ts';
 
 export default function Groups() {
-  return (
-    <div>
-      <div>Groups</div>
-      <TableContainer component={Paper}>
-        <Table>
-          <TableHead>
-            <TableRow>
-              <TableCell>Фамилия</TableCell>
-              <TableCell>Имя</TableCell>
-              <TableCell>Отчество</TableCell>
-              <TableCell width={'1%'}></TableCell>
-              <TableCell width={'1%'}></TableCell>
-            </TableRow>
-          </TableHead>
-        </Table>
-      </TableContainer>
-    </div>
-  );
+  const { camp } = useCampContext();
+  const { state: groups } = useGroupApi(camp ? camp.id : undefined);
+  return <GroupsTable list={groups} />;
 }

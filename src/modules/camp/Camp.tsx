@@ -1,6 +1,6 @@
 import { type ComponentType, useEffect } from 'react';
 import BaseInfo from '@/modules/camp-base-info/BaseInfo.tsx';
-import Sportsmen from '@/modules/sportsmen/Sportsmen.tsx';
+import SportsmenTab from '@/modules/sportsmen/SportsmenTab.tsx';
 import Groups from '@/modules/groups/Groups';
 import { useCampTabs } from '@/modules/camp/hooks/use-camp-tabs.hook.ts';
 import PageTitle from '@/common/components/PageTitle.tsx';
@@ -24,7 +24,7 @@ const TABS: CampTab[] = [
   {
     name: 'Спортсмены',
     path: 'sportsmen',
-    component: Sportsmen,
+    component: SportsmenTab,
   },
   {
     name: 'Группы',

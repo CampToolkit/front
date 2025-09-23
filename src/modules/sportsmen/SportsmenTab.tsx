@@ -7,7 +7,7 @@ const theadStyles = {
   fontWeight: '900',
 };
 
-export default function Sportsmen() {
+export default function SportsmenTab() {
   const { camp } = useCampContext();
   const { state: sportsmen } = useSportsmanApi(camp ? camp.id : undefined);
 
