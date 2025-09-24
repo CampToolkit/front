@@ -16,6 +16,10 @@ const menuItems = [
     name: 'Favorites',
     href: '/favorites',
   },
+  {
+    name: 'Schedule',
+    href: '/calendar',
+  },
 ];
 
 export default function SidebarMenu() {

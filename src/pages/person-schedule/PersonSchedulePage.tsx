@@ -1,7 +1,10 @@
+import Calendar from '@/modules/calendar/ui/Calendar.tsx';
+import { CalendarContextProvider } from '@/modules/calendar/providers/calendar-context-provider.tsx';
+
 export default function PersonSchedulePage() {
   return (
-    <div>
-      <div>person schedule page</div>
-    </div>
+    <CalendarContextProvider>
+      <Calendar />
+    </CalendarContextProvider>
   );
 }
