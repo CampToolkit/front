@@ -16,32 +16,27 @@ export default function SportsmenTab() {
   };
 
   return (
-    <div>
-      <Table stickyHeader>
-        <TableHead>
-          <TableRow>
-            <TableCell sx={theadStyles}>ФИО</TableCell>
-            <TableCell sx={theadStyles} width={'1%'}>
-              Наблюдать
+    <Table stickyHeader>
+      <TableHead>
+        <TableRow>
+          <TableCell sx={theadStyles}>ФИО</TableCell>
+          <TableCell sx={theadStyles} width={'1%'}>
+            Наблюдать
+          </TableCell>
+        </TableRow>
+      </TableHead>
+      <TableBody>
+        {sportsmen.map((entity) => (
+          <TableRow key={entity.id}>
+            <TableCell>
+              {entity.lastName} {entity.firstName} {entity.patrName}
+            </TableCell>
+            <TableCell align={'center'}>
+              <Checkbox key={`${entity.id}${entity.id}`} onChange={(e) => onChange(e, entity.id)} />
             </TableCell>
           </TableRow>
-        </TableHead>
-        <TableBody>
-          {sportsmen.map((entity) => (
-            <TableRow key={entity.id}>
-              <TableCell>
-                {entity.lastName} {entity.firstName} {entity.patrName}
-              </TableCell>
-              <TableCell align={'center'}>
-                <Checkbox
-                  key={`${entity.id}${entity.id}`}
-                  onChange={(e) => onChange(e, entity.id)}
-                />
-              </TableCell>
-            </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </div>
+        ))}
+      </TableBody>
+    </Table>
   );
 }

@@ -1,3 +1,5 @@
+import Home from '@/modules/home/Home.tsx';
+
 export default function HomePage() {
-  return <div>Home</div>;
+  return <Home />;
 }
