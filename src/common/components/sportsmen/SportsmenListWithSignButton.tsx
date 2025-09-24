@@ -1,5 +1,5 @@
 import { Box, Button, Table, TableBody, TableCell, TableRow } from '@mui/material';
-import type { Sportsman } from '@/common/api/sportsman/SportsmanApi.type';
+import type { Sportsman } from '@/common/api/sportsman/SportsmanApi.type.ts';
 
 const cellStyles = {
   padding: '0.5rem',
@@ -10,7 +10,7 @@ interface Props {
   onClick: (sportsmanId: number) => void;
 }
 
-export default function Sportsmen(props: Props) {
+export default function SportsmenListWithSignButton(props: Props) {
   const { sportsmen, onClick } = props;
 
   return (

@@ -1,5 +1,5 @@
 import { Box, Button } from '@mui/material';
-import Sportsmen from '@/modules/home/Sportsmen.tsx';
+import SportsmenListWithSignButton from '@/common/components/sportsmen/SportsmenListWithSignButton.tsx';
 import { useSportsmanApi } from '@/common/api/sportsman/hooks/use-sportsman-api.hook.ts';
 import { useModal } from '@/app/providers/global-modal/use-modal.hook.ts';
 
@@ -9,7 +9,9 @@ export default function Home() {
   const addSportsmanToSpyList = (sportsmanId: number) => {
     console.log(sportsmanId);
   };
-  const component = () => <Sportsmen sportsmen={sportsmen} onClick={addSportsmanToSpyList} />;
+  const component = () => (
+    <SportsmenListWithSignButton sportsmen={sportsmen} onClick={addSportsmanToSpyList} />
+  );
   const onButtonClick = () => {
     openModal({
       content: component,
