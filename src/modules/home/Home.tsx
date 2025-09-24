@@ -37,7 +37,11 @@ export default function Home() {
       >
         {sportsmen &&
           sportsmen.map((entity) => (
-            <Link key={entity.id} to={`/sportsman/${entity.id}`} style={{ textDecoration: 'none' }}>
+            <Link
+              key={entity.id}
+              to={`/person-schedule/${entity.id}`}
+              style={{ textDecoration: 'none' }}
+            >
               <BaseTile>
                 <Box>
                   <Typography variant="body2" color="primary.contrastText">
