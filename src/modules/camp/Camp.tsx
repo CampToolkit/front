@@ -1,4 +1,3 @@
-import { type ComponentType, useEffect } from 'react';
 import BaseInfo from '@/modules/camp-base-info/BaseInfo.tsx';
 import SportsmenTab from '@/modules/sportsmen/SportsmenTab.tsx';
 import Groups from '@/modules/groups/Groups.tsx';
@@ -8,14 +7,10 @@ import { Box, Tab, Tabs } from '@mui/material';
 import { useParams } from 'react-router-dom';
 import { useCampContext } from '@/modules/camp/providers/camp-context.ts';
 import { useCampApi } from '@/common/api/camp/hooks/use-camp-api.hook.ts';
+import type { TabType } from '@/common/types/tabs.type.ts';
+import { useEffect } from 'react';
 
-interface CampTab {
-  name: string;
-  path: string;
-  component: ComponentType;
-}
-
-const TABS: CampTab[] = [
+const TABS: TabType[] = [
   {
     name: 'Основная информация',
     path: 'base-info',

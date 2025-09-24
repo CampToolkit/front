@@ -1,7 +1,5 @@
+import Calendar from '@/modules/calendar/ui/Calendar.tsx';
+
 export default function PersonSchedulePage() {
-  return (
-    <div>
-      <div>person schedule page</div>
-    </div>
-  );
+  return <Calendar />;
 }
