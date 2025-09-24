@@ -22,7 +22,7 @@ export interface GetLessonDto extends Record<string, unknown> {
   lessonTypeId?: number;
 }
 
-export type LessonCoachRole = "PRIMARY" | "SECONDARY";
+export type LessonCoachRole = 'PRIMARY' | 'SECONDARY';
 
 // coach
 export interface CoachWithRoleDto {
