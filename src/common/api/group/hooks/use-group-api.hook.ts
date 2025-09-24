@@ -17,7 +17,7 @@ export function useGroupApi(campId?: number) {
 
   useEffect(() => {
     fetch();
-  }, [fetch]);
+  }, []);
 
   return { state, fetch };
 }
