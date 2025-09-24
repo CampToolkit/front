@@ -1,39 +1,48 @@
-import { useEffect, useState } from 'react';
-import { Outlet } from 'react-router-dom';
-import dayjs, { Dayjs } from 'dayjs';
-
 import { Box } from '@mui/material';
 import PageTitle from '@/common/components/PageTitle.tsx';
-import type { DayScheduleType } from '@/modules/calendar/types/day-schedule.type.ts';
-import type { TabType } from '@/common/types/tabs.type.ts';
 
 import WeekCalendar from '@/modules/calendar/ui/WeekCalendar.tsx';
 import DayCalendar from '@/modules/calendar/ui/DayCalendar.tsx';
+import {
+  CALENDAR_VIEW_MODE_OPTION,
+  type CalendarViewModeType,
+  useCalendarContext,
+} from '@/modules/calendar/providers/calendar-context.ts';
+import type { TabType } from '@/common/types/tabs.type.ts';
+import CalendarModeToggle from '@/modules/calendar/ui/CalendarModeToggle.tsx';
 
-const TABS: TabType[] = [
-  {
+type ModeTabsType<T extends string> = Record<T, TabType>;
+const TABS: ModeTabsType<CalendarViewModeType> = {
+  [CALENDAR_VIEW_MODE_OPTION.DAY]: {
     name: 'День',
     path: 'day-calendar',
     component: DayCalendar,
   },
-  {
+  [CALENDAR_VIEW_MODE_OPTION.WEEK]: {
     name: 'Неделя',
     path: 'week-calendar',
     component: WeekCalendar,
   },
-];
+};
 
 export default function Calendar() {
-  const [schedules, setSchedules] = useState<DayScheduleType[]>([]);
-  const [currentDate, setCurrentDate] = useState<Dayjs | null>(dayjs());
+  const { viewMode } = useCalendarContext();
 
-  useEffect(() => {
-    setSchedules([]);
-  }, []);
+  const CurrentTab = TABS[viewMode].component;
+
   return (
     <Box>
-      <PageTitle title="Расписание" showBackButton={true} />
-      <Outlet context={{ schedules, currentDate, setCurrentDate }} />
+      <Box
+        sx={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+        }}
+      >
+        <PageTitle title="Расписание" showBackButton={true} />
+        <CalendarModeToggle />
+      </Box>
+      <CurrentTab />
     </Box>
   );
 }

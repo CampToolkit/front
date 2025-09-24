@@ -1,12 +1,12 @@
 import { createContext, type Dispatch, useContext } from 'react';
 import dayjs, { type Dayjs } from 'dayjs';
 
-export const VIEW_MODE_OPTION = {
+export const CALENDAR_VIEW_MODE_OPTION = {
   DAY: 'DAY',
   WEEK: 'WEEK',
 } as const;
 
-export type CalendarViewModeType = keyof typeof VIEW_MODE_OPTION;
+export type CalendarViewModeType = keyof typeof CALENDAR_VIEW_MODE_OPTION;
 
 interface CalendarContextType {
   viewMode: CalendarViewModeType;
@@ -16,7 +16,7 @@ interface CalendarContextType {
 }
 
 const DEFAULT_VALUES: CalendarContextType = {
-  viewMode: VIEW_MODE_OPTION.DAY,
+  viewMode: CALENDAR_VIEW_MODE_OPTION.WEEK,
   setViewMode: () => {
     throw new Error('It does not work without CalendarContext');
   },
@@ -28,10 +28,10 @@ const DEFAULT_VALUES: CalendarContextType = {
 
 export const CalendarContext = createContext<CalendarContextType>(DEFAULT_VALUES);
 
-export const useCalendar = () => {
+export const useCalendarContext = () => {
   const context = useContext(CalendarContext);
   if (!context) {
-    throw new Error('useCalendar must be used within CalendarContext');
+    throw new Error('useCalendarContext must be used within CalendarContext');
   }
   return context;
 };

@@ -1,7 +1,7 @@
 import {
   CalendarContext,
   type CalendarViewModeType,
-  VIEW_MODE_OPTION,
+  CALENDAR_VIEW_MODE_OPTION,
 } from '@/modules/calendar/providers/calendar-context.ts';
 import { type ReactNode, useMemo, useState } from 'react';
 import dayjs, { type Dayjs } from 'dayjs';
@@ -11,7 +11,7 @@ interface Props {
 }
 
 export const CalendarContextProvider = ({ children }: Props) => {
-  const [viewMode, setViewMode] = useState<CalendarViewModeType>(VIEW_MODE_OPTION.DAY);
+  const [viewMode, setViewMode] = useState<CalendarViewModeType>(CALENDAR_VIEW_MODE_OPTION.DAY);
   const [currentDate, setCurrentDate] = useState<Dayjs>(dayjs());
   const viewModeMemo = useMemo(
     () => ({

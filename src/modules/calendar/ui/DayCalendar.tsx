@@ -1,12 +1,9 @@
 import { Box, Typography } from '@mui/material';
 
-import 'dayjs/locale/ru';
-
-import type { CalendarOutletContextType } from '@/modules/calendar/types/calendar-outlet-context.type.ts';
-import { useOutletContext } from 'react-router-dom';
+import { useCalendarContext } from '@/modules/calendar/providers/calendar-context.ts';
 
 export default function DayCalendar() {
-  const { currentDate } = useOutletContext<CalendarOutletContextType>();
+  const { currentDate } = useCalendarContext();
 
   return (
     <Box>
