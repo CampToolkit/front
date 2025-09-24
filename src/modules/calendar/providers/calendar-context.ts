@@ -1,5 +1,7 @@
 import { createContext, type Dispatch, useContext } from 'react';
 import dayjs, { type Dayjs } from 'dayjs';
+import type { Event } from '@/common/api/event/EventApi.type.ts';
+import type { GetLessonDto } from '@/common/api/event/EventApi.dto.ts';
 
 export const CALENDAR_VIEW_MODE_OPTION = {
   DAY: 'DAY',
@@ -13,6 +15,8 @@ interface CalendarContextType {
   setViewMode: Dispatch<CalendarViewModeType>;
   currentDate: Dayjs;
   setCurrentDate: Dispatch<Dayjs>;
+  events: Event[];
+  fetchEvents: (params: GetLessonDto) => void;
 }
 
 const DEFAULT_VALUES: CalendarContextType = {
@@ -23,6 +27,12 @@ const DEFAULT_VALUES: CalendarContextType = {
   currentDate: dayjs(),
   setCurrentDate: () => {
     throw new Error('It does not work without CalendarContext');
+  },
+
+  events: [],
+
+  fetchEvents: (params: GetLessonDto) => {
+    throw new Error(`It does not work without CalendarContext; ${params}`);
   },
 };
 

@@ -20,6 +20,7 @@ export interface GetLessonDto extends Record<string, unknown> {
   activityTypeId?: number;
   auditoriumId?: number;
   lessonTypeId?: number;
+  groupId?: number;
 }
 
 export type LessonCoachRole = 'PRIMARY' | 'SECONDARY';

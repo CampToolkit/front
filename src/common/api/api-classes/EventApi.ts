@@ -9,7 +9,7 @@ import type {
   UpdateLessonDto,
 } from '@/common/api/event/EventApi.dto.ts';
 import { axiosConfig } from '@/common/api/axios-config.ts';
-import type { Event_Coach, Event_Group } from '@/common/api/event/EventApi.type.ts';
+import type { Event_Coach, Event_Group, Event } from '@/common/api/event/EventApi.type.ts';
 
 export class ClassEventApi extends BaseApi<Event, CreateLessonDto, UpdateLessonDto> {
   override async getAll(): Promise<Event[]>;
