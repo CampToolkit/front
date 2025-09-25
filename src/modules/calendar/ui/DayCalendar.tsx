@@ -12,7 +12,7 @@ import EventCard from '@/modules/calendar/ui/EventCard.tsx';
 import { calcLessonPosition } from '../utils/calc-lesson-position';
 import dayjs from 'dayjs';
 import DateNavigator from '@/modules/calendar/ui/DateNavigator.tsx';
-import { distributeEvents } from '@/modules/calendar/utils/distribute-events/use-distribute-events.ts';
+import { distributeEvents } from '@/modules/calendar/utils/distribute-events/distribute-events.ts';
 
 const tableTitleStyles: SxProps<Theme> = {
   display: 'flex',
