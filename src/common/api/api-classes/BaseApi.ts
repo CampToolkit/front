@@ -1,11 +1,6 @@
-import { axiosConfig } from "@/shared/api/axios-config.ts";
+import { axiosConfig } from '../axios-config';
 
-export class BaseApi<
-  TEntity,
-  TCreateDto,
-  TUpdateDto,
-  TBulkDto = { items: TCreateDto[] },
-> {
+export class BaseApi<TEntity, TCreateDto, TUpdateDto, TBulkDto = { items: TCreateDto[] }> {
   protected readonly basePath: string;
 
   constructor(basePath: string) {
@@ -33,18 +28,12 @@ export class BaseApi<
   }
 
   async createMany(dto: TBulkDto): Promise<TEntity[]> {
-    const { data } = await axiosConfig.post<TEntity[]>(
-      `${this.basePath}/bulk`,
-      dto,
-    );
+    const { data } = await axiosConfig.post<TEntity[]>(`${this.basePath}/bulk`, dto);
     return data;
   }
 
   async update(id: number, dto: TUpdateDto): Promise<TEntity> {
-    const { data } = await axiosConfig.patch<TEntity>(
-      `${this.basePath}/${id}`,
-      dto,
-    );
+    const { data } = await axiosConfig.patch<TEntity>(`${this.basePath}/${id}`, dto);
     return data;
   }
 
