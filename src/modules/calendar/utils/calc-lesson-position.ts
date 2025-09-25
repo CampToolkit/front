@@ -13,6 +13,8 @@ interface Props {
   overlapEventsAmount: number;
 }
 
+const MAX_WIDTH_PERCENT = 100;
+
 export function calcLessonPosition(props: Props) {
   const { event, eventIndex, overlapEventsAmount } = props;
 
@@ -21,7 +23,7 @@ export function calcLessonPosition(props: Props) {
 
   const height = (endDateD.hour() - startDateD.hour()) * SLOTS_AMOUNT_IN_HOUR * SLOT_HEIGHT;
 
-  const width = 95 / overlapEventsAmount;
+  const width = MAX_WIDTH_PERCENT / overlapEventsAmount;
 
   const top = calcTopPosition(startDateD);
 
