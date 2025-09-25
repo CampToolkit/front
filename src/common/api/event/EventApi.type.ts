@@ -1,12 +1,13 @@
-import type { Entity } from "@/shared/api/lib/types/Entity.type.ts";
+import type { Entity } from '@/common/api/lib/types/Entity.type.ts';
 
-import type { Group } from "@/shared/api/group/GroupApi.type.ts";
-import type { Sportsman } from "@/shared/api/sportsman/SportsmanApi.type.ts";
+import type { Group } from '@/common/api/group/GroupApi.type.ts';
+import type { Sportsman } from '@/common/api/sportsman/SportsmanApi.type.ts';
 
-import type { Coach } from "@/shared/api/coach/CoachApi.type.ts";
-import type { ActivityType } from "@/shared/api/activity-type/ActivityTypeApi.type.ts";
-import type { CampsLocation } from "@/shared/api/location/LocationApi.type.ts";
-import type { LessonType } from "@/shared/api/lesson-type/LessonTypeApi.type.ts";
+import type { Coach } from '@/common/api/coach/CoachApi.type.ts';
+import type { ActivityType } from '@/common/api/activity-type/ActivityTypeApi.type.ts';
+import type { CampsLocation } from '@/common/api/location/LocationApi.type.ts';
+import type { LessonType } from '@/common/api/lesson-type/LessonTypeApi.type.ts';
+import type { LessonCoachRole } from '@/common/api/event/EventApi.dto.ts';
 
 export interface Event extends Entity {
   startDate: string;
@@ -22,7 +23,7 @@ export interface Event extends Entity {
 export interface Event_Coach extends Entity {
   lessonId: number;
   coachId: number;
-  role: "PRIMARY" | "SECONDARY";
+  role: LessonCoachRole;
 }
 
 export interface Event_Group extends Entity {
