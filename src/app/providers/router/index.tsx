@@ -9,6 +9,7 @@ import CalendarPage from '@/pages/calendar/CalendarPage';
 import WeekCalendar from '@/modules/calendar/ui/WeekCalendar.tsx';
 import DayCalendar from '@/modules/calendar/ui/DayCalendar.tsx';
 import PersonSchedulePage from '@/pages/person-schedule/PersonSchedulePage.tsx';
+import AdditionalPracticeSchedulePage from '@/pages/additional-practice-schedule/AdditionalPracticeSchedulePage.tsx';
 
 const router = createBrowserRouter([
   {
@@ -27,13 +28,18 @@ const router = createBrowserRouter([
         path: '/camps/:campId',
         element: <CampPage />,
       },
-      {
-        path: 'person-schedule/:personId',
-        element: <PersonSchedulePage />,
-      },
+
       {
         path: 'profile',
         element: <UserProfile />,
+      },
+      {
+        path: 'schedule/:campId/sportsman/:sportsmanId',
+        element: <PersonSchedulePage />,
+      },
+      {
+        path: 'schedule/:campId/additional-practice',
+        element: <AdditionalPracticeSchedulePage />,
       },
       {
         path: 'calendar',

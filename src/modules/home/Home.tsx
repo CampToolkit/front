@@ -56,10 +56,17 @@ export default function Home() {
                 <Typography variant="body2">Участник текущего сбора:</Typography>
               </Box>
               <Stack gap={1}>
-                <Button sx={buttonStyles} onClick={() => navigate(`/person-schedule/${entity.id}`)}>
+                <Button
+                  sx={buttonStyles}
+                  onClick={() => navigate(`/schedule/1/sportsman/${entity.id}`)}
+                >
                   Расписание
                 </Button>
-                <Button size="small" sx={buttonStyles}>
+                <Button
+                  size="small"
+                  sx={buttonStyles}
+                  onClick={() => navigate(`/schedule/1/additional-practice`)}
+                >
                   Записаться на дополнительные занятия
                 </Button>
               </Stack>
