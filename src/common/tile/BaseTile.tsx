@@ -1,8 +1,10 @@
-import { Box } from '@mui/material';
+import { Box, type SxProps } from '@mui/material';
 import type { ReactNode } from 'react';
+import type { Theme } from '@mui/system';
 
 type BaseTilePropsType = {
   children: ReactNode;
+  sx?: SxProps<Theme>;
 };
 
 export default function BaseTile(props: BaseTilePropsType) {
@@ -40,6 +42,7 @@ export default function BaseTile(props: BaseTilePropsType) {
           outlineColor: 'primary.main',
           outlineOffset: '2px',
         },
+        ...props.sx,
       }}
     >
       {props.children}
