@@ -8,6 +8,7 @@ import dayjs, { type Dayjs } from 'dayjs';
 import type { Event } from '@/common/api/event/EventApi.type.ts';
 import type { GetLessonDto } from '@/common/api/event/EventApi.dto.ts';
 import { EventApi } from '@/common/api/event/EventApi.ts';
+import { useParams } from 'react-router-dom';
 
 interface Props {
   children: ReactNode;
@@ -18,13 +19,17 @@ export const CalendarContextProvider = ({ children }: Props) => {
   const [currentDate, setCurrentDate] = useState<Dayjs>(dayjs());
   const [events, setEvents] = useState<Event[]>([]);
 
+  const { campId } = useParams();
+  const { sportsmanId } = useParams();
+
   const fetchEvents = useCallback(async (params: GetLessonDto) => {
     const data = await EventApi.getAll({ ...params });
     setEvents(data);
   }, []);
 
   useEffect(() => {
-    fetchEvents({ campId: 1, eventId: 1 });
+    console.log('useEffect');
+    fetchEvents({ campId: Number(campId), sportsmanId: Number(sportsmanId) });
   }, [fetchEvents]);
 
   const value = useMemo(

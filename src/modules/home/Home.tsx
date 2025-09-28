@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router';
+
 import { Box, Button, colors, Stack, Typography } from '@mui/material';
 import SportsmenListWithSignButton from '@/common/components/sportsmen/SportsmenListWithSignButton.tsx';
 import { useSportsmanApi } from '@/common/api/sportsman/hooks/use-sportsman-api.hook.ts';
@@ -41,6 +42,7 @@ export default function Home() {
         {sportsmen &&
           sportsmen.map((entity) => (
             <BaseTile
+              key={entity.id}
               sx={{
                 border: 'none',
                 backgroundColor: colors.grey['100'],
@@ -50,7 +52,7 @@ export default function Home() {
               }}
             >
               <Box sx={{ marginBottom: 'auto' }}>
-                <Typography variant="h4">
+                <Typography variant="h6">
                   {entity.lastName} {entity.firstName}
                 </Typography>
                 <Typography variant="body2">Участник текущего сбора:</Typography>
@@ -58,14 +60,21 @@ export default function Home() {
               <Stack gap={1}>
                 <Button
                   sx={buttonStyles}
-                  onClick={() => navigate(`/schedule/1/sportsman/${entity.id}`)}
+                  onClick={() => {
+                    const GROUP_ID = 4;
+                    const params = new URLSearchParams({ groupId: String(GROUP_ID) });
+                    navigate({
+                      pathname: `/schedule/3/sportsman/${entity.id}`,
+                      search: `${params.toString()}`,
+                    });
+                  }}
                 >
                   Расписание
                 </Button>
                 <Button
                   size="small"
                   sx={buttonStyles}
-                  onClick={() => navigate(`/schedule/1/additional-practice`)}
+                  onClick={() => navigate(`/schedule/3/additional-practice`)}
                 >
                   Записаться на дополнительные занятия
                 </Button>
