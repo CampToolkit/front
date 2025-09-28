@@ -30,7 +30,6 @@ export const CalendarContextProvider = ({ children }: Props) => {
   }, []);
 
   useEffect(() => {
-    console.log('useEffect');
     fetchEvents({
       campId: Number(campId),
       sportsmanId: Number(sportsmanId),
@@ -47,10 +46,8 @@ export const CalendarContextProvider = ({ children }: Props) => {
       events,
       fetchEvents,
     }),
-    [viewMode, currentDate, events, fetchEvents],
+    [viewMode, campId, currentDate, events, fetchEvents],
   );
-
-  console.log(value.events);
 
   return <CalendarContext.Provider value={value}>{children}</CalendarContext.Provider>;
 };
