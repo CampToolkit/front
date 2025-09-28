@@ -12,6 +12,7 @@ export default function Home() {
   const navigate = useNavigate();
   const { openModal } = useModal();
   const { state: sportsmen } = useSportsmanApi();
+
   const addSportsmanToSpyList = (sportsmanId: number) => {
     console.log(sportsmanId);
   };
