@@ -4,4 +4,5 @@ export interface Sportsman extends Person {
   birthDate: string;
   createdAt: string;
   updatedAt: string;
+  groupId: number;
 }

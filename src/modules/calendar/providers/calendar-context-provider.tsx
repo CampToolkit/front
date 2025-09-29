@@ -23,7 +23,7 @@ export const CalendarContextProvider = ({ children }: Props) => {
   const [events, setEvents] = useState<Event[]>([]);
   const { campId } = useParams();
   const groupId = searchParams.get('groupId');
-
+  console.log(events);
   const fetchEvents = useCallback(async (params: GetLessonDto) => {
     const data = await EventApi.getAll({ ...params });
     setEvents(data);

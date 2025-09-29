@@ -62,7 +62,7 @@ export default function Home() {
                 <Button
                   sx={buttonStyles}
                   onClick={() => {
-                    const GROUP_ID = 4;
+                    const GROUP_ID = 25;
                     const params = new URLSearchParams({ groupId: String(GROUP_ID) });
                     navigate({
                       pathname: `/schedule/3/sportsman/${entity.id}`,

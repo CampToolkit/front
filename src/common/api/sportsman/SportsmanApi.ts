@@ -9,6 +9,7 @@ import type {
 } from '@/common/api/sportsman/SportsmanApi.dto.ts';
 import { axiosConfig } from '@/common/api/axios-config.ts';
 import { customDelete } from '@/common/api/lib/utils/custom-delete.ts';
+import type { IncludesDto } from '@/common/api/lib/types/IncludesDto.ts';
 
 export const SportsmanApi: RelatedCampEntityApi<Sportsman, CreateSportsmanDto> = {
   getAll: async () => {
@@ -37,8 +38,10 @@ export const SportsmanApi: RelatedCampEntityApi<Sportsman, CreateSportsmanDto> =
     return data;
   },
 
-  getByCamp: async (campId: number) => {
-    const { data } = await axiosConfig.get<Sportsman[]>(`/camp/${campId}/sportsman`);
+  getByCamp: async (campId: number, params?: IncludesDto) => {
+    const { data } = await axiosConfig.get<Sportsman[]>(`/camp/${campId}/sportsman`, {
+      params,
+    });
     return data;
   },
 

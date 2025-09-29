@@ -1,4 +1,4 @@
-export type NewEntity<T> = Omit<T, "id">;
+export type NewEntity<T> = Omit<T, 'id'>;
 export type NewNativeCampEntity<T> = Partial<NewEntity<T>> & { campId: number };
 
 export interface EntityApi<T, D> {
